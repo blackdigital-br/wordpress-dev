@@ -1,0 +1,15 @@
+#Docker compose para ambiente de desenvolvimento
+version: '3.3'
+
+services:
+  wordpress:
+    image: wordpressdev
+    ports:
+      - "3306:3306"
+      - "8787:80"
+    volumes:
+      - "./.local/data/:/var/lib/mysql/"
+      - "./.local/uploads/:/var/www/html/wp-content/uploads/" 
+      #- "./.local/plugins/:/var/www/html/wp-content/plugins/"
+      #- "./.local/themes/:/var/www/html/wp-content/themes/"
+      - "./.local/logs/:/var/www/logs/"
